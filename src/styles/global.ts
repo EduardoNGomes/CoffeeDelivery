@@ -13,7 +13,6 @@ export const GlobalStyle = createGlobalStyle`
  body {
   background: ${({ theme }) => theme.background};
   -webkit-font-smoothing: antialiased;
-
   
  }
 
@@ -22,5 +21,15 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${({ theme }) => theme['font-1']};
     font-weight: 400;
     font-size: 1.6rem;
+  }
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  li{
+    list-style: none;
   }
 `
