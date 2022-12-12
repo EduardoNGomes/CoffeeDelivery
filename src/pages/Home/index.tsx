@@ -1,13 +1,10 @@
 import { Container } from './styles'
 
+import { Main } from './components/Main'
 export function Home() {
   return (
     <Container>
-      <main>
-        <div>
-          <h1>Encontre o café perfeito para qualquer hora do dia</h1>
-        </div>
-      </main>
+      <Main />
     </Container>
   )
 }

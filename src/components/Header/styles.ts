@@ -1,9 +1,7 @@
 import styled from 'styled-components'
 
 export const NavContainer = styled.nav`
-  width: 100%;
-  margin: 0 auto;
-  max-width: 1440px;
+  margin: 0 16rem;
 
   display: flex;
   justify-content: space-between;

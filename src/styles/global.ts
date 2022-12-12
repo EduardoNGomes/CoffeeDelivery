@@ -10,11 +10,12 @@ export const GlobalStyle = createGlobalStyle`
   font-size: 66.5%;
  }
 
- body {
-  background: ${({ theme }) => theme.background};
-  -webkit-font-smoothing: antialiased;
+  body {
+    background: ${({ theme }) => theme.background};
+    max-width: 144rem;
+    margin: 0 auto;
   
- }
+  }
 
 
  body,input, textarea, button {
