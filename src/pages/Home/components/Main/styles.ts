@@ -48,27 +48,35 @@ export const TextsContainer = styled.div`
   }
 
   ul li:nth-child(1) span {
+    display: flex;
+    align-items: center;
     background: ${({ theme }) => theme['yellow-dark']};
     padding: 8px;
-    border-radius: 49%;
+    border-radius: 50%;
     color: ${({ theme }) => theme.white};
   }
   ul li:nth-child(2) span {
+    display: flex;
+    align-items: center;
     background: ${({ theme }) => theme['base-text']};
     padding: 8px;
-    border-radius: 49%;
+    border-radius: 50%;
     color: ${({ theme }) => theme.white};
   }
   ul li:nth-child(3) span {
+    display: flex;
+    align-items: center;
     background: ${({ theme }) => theme.yellow};
     padding: 8px;
-    border-radius: 49%;
+    border-radius: 50%;
     color: ${({ theme }) => theme.white};
   }
   ul li:nth-child(4) span {
+    display: flex;
+    align-items: center;
     background: ${({ theme }) => theme.purple};
     padding: 8px;
-    border-radius: 49%;
+    border-radius: 50%;
     color: ${({ theme }) => theme.white};
   }
 `
