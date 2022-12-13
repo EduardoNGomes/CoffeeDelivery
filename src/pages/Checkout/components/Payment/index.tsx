@@ -27,7 +27,7 @@ export function Payment() {
         <PaymentButton>
           <Bank size={18} /> <span>cartao de débito</span>
         </PaymentButton>
-        <PaymentButton>
+        <PaymentButton className="active">
           <Money size={18} /> <span>dinheiro</span>
         </PaymentButton>
       </ButtonsBoxContainer>

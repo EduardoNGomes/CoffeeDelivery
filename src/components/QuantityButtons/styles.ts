@@ -17,5 +17,9 @@ export const QuantityContainer = styled.div`
   }
   button {
     color: ${({ theme }) => theme.purple};
+
+    :hover {
+      color: ${({ theme }) => theme['purple-dark']};
+    }
   }
 `

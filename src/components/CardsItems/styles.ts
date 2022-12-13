@@ -94,4 +94,8 @@ export const ButtonShopCartContainer = styled.button`
   color: ${({ theme }) => theme.white};
 
   border-radius: 6px;
+
+  :hover {
+    background: ${({ theme }) => theme.purple};
+  }
 `

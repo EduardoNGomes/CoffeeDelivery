@@ -24,6 +24,7 @@ export function Header() {
         <li>
           <ButtonShopCartContainer>
             <ShoppingCart size={22} weight="fill" />
+            <div>2</div>
           </ButtonShopCartContainer>
         </li>
       </ul>

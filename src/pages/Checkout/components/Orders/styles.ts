@@ -81,6 +81,11 @@ export const ButtonRemoveContainer = styled.button`
 
     color: ${({ theme }) => theme['base-text']};
   }
+
+  :hover {
+    color: ${({ theme }) => theme['base-subtitle']};
+    background: ${({ theme }) => theme['base-hover']};
+  }
 `
 export const ValuesContainer = styled.div`
   display: flex;
@@ -128,4 +133,8 @@ export const ButtonConfirm = styled.button`
 
   color: ${({ theme }) => theme.white};
   font-stretch: 100;
+
+  :hover {
+    background: ${({ theme }) => theme['yellow-dark']};
+  }
 `

@@ -7,6 +7,10 @@ export const PaymentContainer = styled.section`
 
   background: ${({ theme }) => theme['base-card']};
   border-radius: 6px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 export const PaymentText = styled.div`
@@ -68,5 +72,18 @@ export const PaymentButton = styled.button`
     text-transform: uppercase;
 
     color: ${({ theme }) => theme['base-text']};
+
+    :hover {
+      color: ${({ theme }) => theme['base-subtitle']};
+    }
+  }
+
+  :hover {
+    background-color: ${({ theme }) => theme['base-hover']};
+  }
+
+  &.active {
+    background: ${({ theme }) => theme['purple-light']};
+    border: 1px solid ${({ theme }) => theme.purple};
   }
 `

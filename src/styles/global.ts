@@ -28,6 +28,8 @@ export const GlobalStyle = createGlobalStyle`
     background: none;
     border: none;
     cursor: pointer;
+
+    transition: all .3s;
   }
 
   li{
