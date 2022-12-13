@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const AddressContainer = styled.section`
+export const BoxContainer = styled.section`
+  grid-area: address;
+
   h1 {
     font-family: ${({ theme }) => theme['font-2']};
     font-weight: 700;
@@ -12,7 +14,7 @@ export const AddressContainer = styled.section`
   }
 `
 
-export const BoxContainer = styled.div`
+export const AddressContainer = styled.div`
   margin-top: 15px;
   background-color: ${({ theme }) => theme['base-card']};
   border-radius: 6px;

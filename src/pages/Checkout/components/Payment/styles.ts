@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const PaymentContainer = styled.section`
+  grid-area: payment;
+
   padding: 40px;
 
   background: ${({ theme }) => theme['base-card']};
@@ -62,7 +64,6 @@ export const PaymentButton = styled.button`
   span {
     font-weight: 400;
     font-size: 1.2rem;
-    line-height: 160%;
 
     text-transform: uppercase;
 

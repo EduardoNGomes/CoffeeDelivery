@@ -8,10 +8,10 @@ import {
 
 export function Address() {
   return (
-    <AddressContainer>
+    <BoxContainer>
       <h1>Complete seu pedido</h1>
 
-      <BoxContainer>
+      <AddressContainer>
         <AddressText>
           <MapPinLine size={22} weight="thin" />
           <div>
@@ -29,7 +29,7 @@ export function Address() {
           <input type="text" placeholder="Cidade" />
           <input type="text" placeholder="UF" />
         </FormContainer>
-      </BoxContainer>
-    </AddressContainer>
+      </AddressContainer>
+    </BoxContainer>
   )
 }

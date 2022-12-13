@@ -3,11 +3,12 @@ import {
   TypeContainer,
   ItemsDescription,
   ItemsDetail,
-  QuantityContainer,
   ButtonShopCartContainer,
 } from './styles'
 
-import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { QuantityButtons } from '../QuantityButtons'
+
+import { ShoppingCart } from 'phosphor-react'
 
 import img from '../../assets/images/Type=Americano.png'
 
@@ -29,15 +30,7 @@ export function CardsItems() {
           R$ <span>9,90</span>
         </p>
 
-        <QuantityContainer>
-          <button>
-            <Minus size={14} weight="fill" />
-          </button>
-          <p>1</p>
-          <button>
-            <Plus size={14} weight="fill" />
-          </button>
-        </QuantityContainer>
+        <QuantityButtons />
 
         <ButtonShopCartContainer>
           <ShoppingCart size={20} weight="fill" />
