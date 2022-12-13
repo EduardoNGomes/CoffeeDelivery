@@ -56,7 +56,7 @@ export const FormContainer = styled.div`
 
   display: grid;
 
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 60px;
 
   grid-template-areas:
     'a a . . .'

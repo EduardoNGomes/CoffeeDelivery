@@ -26,6 +26,8 @@ export const OrdersContent = styled.div`
   gap: 20px;
 
   padding-bottom: 24px;
+  margin-bottom: 24px;
+
   border-bottom: 1px solid ${({ theme }) => theme['base-button']};
 
   img {
@@ -107,9 +109,12 @@ export const LastValuesContainer = styled(ValuesContainer)`
 
 export const ButtonConfirm = styled.button`
   width: 100%;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  margin-top: 24px;
   padding: 12px;
 
   background: ${({ theme }) => theme.yellow};
