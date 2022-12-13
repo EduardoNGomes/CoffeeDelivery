@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
 export const MainContainer = styled.main`
-  margin: 9.4rem 16rem;
-
   display: flex;
   gap: 56px;
   align-items: center;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const AsideContainer = styled.aside`
-  margin: 9.4rem 16rem;
+  margin: 9.4rem 0;
 
   h2 {
     font-family: ${({ theme }) => theme['font-2']};
