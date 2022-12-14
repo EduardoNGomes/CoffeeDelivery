@@ -7,14 +7,16 @@ import {
   ValuesContainer,
   LastValuesContainer,
   ButtonConfirm,
+  QuantityContainer,
 } from './styles'
 
 import img from '../../../../assets/images/Type=Americano.png'
-import { Trash } from 'phosphor-react'
-
-import { QuantityButtons } from '../../../../components/QuantityButtons'
+import { Minus, Plus, Trash } from 'phosphor-react'
+import { useState } from 'react'
 
 export function Orders() {
+  const [quantity, setQuantity] = useState(1)
+
   return (
     <BoxContainer>
       <h2>Cafés selecionados</h2>
@@ -25,7 +27,15 @@ export function Orders() {
           <div>
             <p>Expresso Tradicional</p>
             <DetailsContent>
-              <QuantityButtons />
+              <QuantityContainer>
+                <button onClick={() => setQuantity(quantity - 1)}>
+                  <Minus size={14} weight="fill" />
+                </button>
+                <p>{quantity}</p>
+                <button onClick={() => setQuantity(quantity + 1)}>
+                  <Plus size={14} weight="fill" />
+                </button>
+              </QuantityContainer>
               <ButtonRemoveContainer>
                 <Trash size={16} />
                 <span>remover</span>

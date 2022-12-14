@@ -4,33 +4,52 @@ import {
   ItemsDescription,
   ItemsDetail,
   ButtonShopCartContainer,
+  QuantityContainer,
 } from './styles'
+import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 
-import { QuantityButtons } from '../QuantityButtons'
-
-import { ShoppingCart } from 'phosphor-react'
-
-interface TypesProps {
-  id: string
-  name: string
-}
-
-interface CardsItemsProps {
-  id: string
-  img: string
-  type: TypesProps[]
-  name: string
-  description: string
-  price: string
-}
+import { CardsItemsProps } from './interfaces'
+import { useContext, useState } from 'react'
+import { ShoppingCartContext } from '../../context/shopCartContext'
 
 export function CardsItems({
+  id,
   img,
   type,
   name,
   description,
   price,
 }: CardsItemsProps) {
+  const [quantity, setQuantity] = useState(1)
+
+  function handleAdd() {
+    setQuantity((prevState) => prevState + 1)
+  }
+
+  function handleRemove() {
+    if (quantity === 1) {
+      setQuantity(1)
+    } else {
+      setQuantity((prevState) => prevState - 1)
+    }
+  }
+
+  const data = useContext(ShoppingCartContext)
+
+  const { addNewItem }: any = data
+
+  function handleAddToShopList() {
+    const itemSelected = {
+      id,
+      img,
+      name,
+      quantity,
+      price,
+    }
+
+    addNewItem(itemSelected)
+  }
+
   return (
     <CardContainer>
       <img src={img} alt="" />
@@ -50,9 +69,17 @@ export function CardsItems({
           R$ <span>{price}</span>
         </p>
 
-        <QuantityButtons />
+        <QuantityContainer>
+          <button onClick={handleRemove}>
+            <Minus size={14} weight="fill" />
+          </button>
+          <p>{quantity}</p>
+          <button onClick={handleAdd}>
+            <Plus size={14} weight="fill" />
+          </button>
+        </QuantityContainer>
 
-        <ButtonShopCartContainer>
+        <ButtonShopCartContainer onClick={handleAddToShopList}>
           <ShoppingCart size={20} weight="fill" />
         </ButtonShopCartContainer>
       </ItemsDetail>
