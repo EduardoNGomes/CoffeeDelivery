@@ -34,6 +34,7 @@ export const TypeContainer = styled.div`
     line-height: 130%;
 
     padding: 4px 8px;
+    text-transform: uppercase;
   }
 `
 

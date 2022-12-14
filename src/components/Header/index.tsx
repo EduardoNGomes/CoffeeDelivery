@@ -8,7 +8,17 @@ import { ShoppingCart, MapPin } from 'phosphor-react'
 
 import logo from '../../assets/logo.png'
 
+import { useContext } from 'react'
+
+import { ShoppingCartContext } from '../../context/shopCartContext'
+
 export function Header() {
+  const data = useContext(ShoppingCartContext)
+
+  function handleClick() {
+    console.log(data)
+  }
+
   return (
     <NavContainer>
       <button>
@@ -22,7 +32,7 @@ export function Header() {
           </ButtonLocationContainer>
         </li>
         <li>
-          <ButtonShopCartContainer>
+          <ButtonShopCartContainer onClick={handleClick}>
             <ShoppingCart size={22} weight="fill" />
             <div>2</div>
           </ButtonShopCartContainer>

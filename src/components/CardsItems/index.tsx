@@ -10,24 +10,44 @@ import { QuantityButtons } from '../QuantityButtons'
 
 import { ShoppingCart } from 'phosphor-react'
 
-import img from '../../assets/images/Type=Americano.png'
+interface TypesProps {
+  id: string
+  name: string
+}
 
-export function CardsItems() {
+interface CardsItemsProps {
+  id: string
+  img: string
+  type: TypesProps[]
+  name: string
+  description: string
+  price: string
+}
+
+export function CardsItems({
+  img,
+  type,
+  name,
+  description,
+  price,
+}: CardsItemsProps) {
   return (
     <CardContainer>
       <img src={img} alt="" />
       <TypeContainer>
-        <p>Tradicional</p>
+        {type.map((item) => (
+          <p key={item.id}>{item.name}</p>
+        ))}
       </TypeContainer>
 
       <ItemsDescription>
-        <p>Expresso Tradicional</p>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <p>{name}</p>
+        <p>{description}</p>
       </ItemsDescription>
 
       <ItemsDetail>
         <p>
-          R$ <span>9,90</span>
+          R$ <span>{price}</span>
         </p>
 
         <QuantityButtons />

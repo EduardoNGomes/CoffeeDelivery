@@ -10,11 +10,13 @@
     "lint": "eslint src --ext .ts,tsx --fix"
   },
   "dependencies": {
+    "@types/uuid": "^9.0.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.5",
-    "styled-components": "^5.3.6"
+    "styled-components": "^5.3.6",
+    "uuidv4": "^6.2.13"
   },
   "devDependencies": {
     "@rocketseat/eslint-config": "^1.1.3",
