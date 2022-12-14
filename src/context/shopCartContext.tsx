@@ -18,8 +18,12 @@ export function ShoppingCartContextProvider({
     dispatch({ type: actions.ADD_NEW_ITEM, payload })
   }
 
+  function removeItem(payload: any) {
+    dispatch({ type: actions.REMOVE_ITEM, payload })
+  }
+
   return (
-    <ShoppingCartContext.Provider value={{ addNewItem, cart }}>
+    <ShoppingCartContext.Provider value={{ addNewItem, removeItem, cart }}>
       {children}
     </ShoppingCartContext.Provider>
   )
