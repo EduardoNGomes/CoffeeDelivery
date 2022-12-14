@@ -24,19 +24,31 @@ export function CardsItems({
 
   const data = useContext(ShoppingCartContext)
 
-  const { addNewItem, removeItem }: any = data
+  const { addNewItem, updateItem, shopCart }: any = data
+
+  const { shopCartList } = shopCart
+
+  console.log(shopCartList)
 
   function handleAdd() {
+    const itemSelected = {
+      id,
+      img,
+      name,
+      quantity,
+      price,
+    }
+    updateItem(itemSelected)
     setQuantity((prevState) => prevState + 1)
   }
 
-  // function handleRemove() {
-  //   if (quantity === 1) {
-  //     setQuantity(1)
-  //   } else {
-  //     setQuantity((prevState) => prevState - 1)
-  //   }
-  // }
+  function handleRemove() {
+    if (quantity === 1) {
+      setQuantity(1)
+    } else {
+      setQuantity((prevState) => prevState - 1)
+    }
+  }
 
   function handleAddToShopList() {
     const itemSelected = {
@@ -48,10 +60,6 @@ export function CardsItems({
     }
 
     addNewItem(itemSelected)
-  }
-
-  function handleRemoveToShopList() {
-    removeItem(id)
   }
 
   return (
@@ -74,7 +82,7 @@ export function CardsItems({
         </p>
 
         <QuantityContainer>
-          <button onClick={handleRemoveToShopList}>
+          <button onClick={handleRemove}>
             <Minus size={14} weight="fill" />
           </button>
           <p>{quantity}</p>

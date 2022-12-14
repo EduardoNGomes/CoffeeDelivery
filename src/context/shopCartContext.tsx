@@ -12,7 +12,7 @@ interface ShoppingCartContextProviderProps {
 export function ShoppingCartContextProvider({
   children,
 }: ShoppingCartContextProviderProps) {
-  const [cart, dispatch] = useReducer(shopCartReducer, { shopCartList: [] })
+  const [shopCart, dispatch] = useReducer(shopCartReducer, { shopCartList: [] })
 
   function addNewItem(payload: any) {
     dispatch({ type: actions.ADD_NEW_ITEM, payload })
@@ -22,8 +22,14 @@ export function ShoppingCartContextProvider({
     dispatch({ type: actions.REMOVE_ITEM, payload })
   }
 
+  function updateItem(payload: any) {
+    dispatch({ type: actions.UPDATE_ITEM, payload })
+  }
+
   return (
-    <ShoppingCartContext.Provider value={{ addNewItem, removeItem, cart }}>
+    <ShoppingCartContext.Provider
+      value={{ addNewItem, removeItem, updateItem, shopCart }}
+    >
       {children}
     </ShoppingCartContext.Provider>
   )

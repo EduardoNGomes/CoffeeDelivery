@@ -12,10 +12,19 @@ import {
 
 import img from '../../../../assets/images/Type=Americano.png'
 import { Minus, Plus, Trash } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { ShoppingCartContext } from '../../../../context/shopCartContext'
 
 export function Orders() {
   const [quantity, setQuantity] = useState(1)
+
+  const data = useContext(ShoppingCartContext)
+
+  const { removeItem }: any = data
+
+  function handleRemoveItemFromShopList() {
+    removeItem('id')
+  }
 
   return (
     <BoxContainer>
@@ -36,7 +45,7 @@ export function Orders() {
                   <Plus size={14} weight="fill" />
                 </button>
               </QuantityContainer>
-              <ButtonRemoveContainer>
+              <ButtonRemoveContainer onClick={handleRemoveItemFromShopList}>
                 <Trash size={16} />
                 <span>remover</span>
               </ButtonRemoveContainer>

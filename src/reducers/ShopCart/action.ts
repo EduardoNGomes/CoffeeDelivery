@@ -1,5 +1,5 @@
 export const actions = {
   ADD_NEW_ITEM: 'ADD_NEW_ITEM',
   REMOVE_ITEM: 'REMOVE_ITEM',
-  CHANGE_ITEM: 'CHANGE_ITEM',
+  UPDATE_ITEM: 'UPDATE_ITEM',
 }
