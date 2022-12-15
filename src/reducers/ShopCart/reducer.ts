@@ -1,6 +1,6 @@
 import { actions } from './action'
 
-interface ShopCartListProps {
+export interface ShopCartListProps {
   id: string
   img: string
   name: string
@@ -15,7 +15,6 @@ interface ShopCarLists {
 export function shopCartReducer(state: ShopCarLists, action: any) {
   switch (action.type) {
     case actions.ADD_NEW_ITEM: {
-      console.log(state.shopCartList)
       return { ...state, shopCartList: [...state.shopCartList, action.payload] }
     }
 
@@ -34,7 +33,6 @@ export function shopCartReducer(state: ShopCarLists, action: any) {
       const newShopCartList = state.shopCartList.filter(
         (item) => item.id !== action.payload.id,
       )
-
       return { ...state, shopCartList: [...newShopCartList, newItem] }
     }
   }

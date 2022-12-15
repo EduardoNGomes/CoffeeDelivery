@@ -18,12 +18,12 @@ export function ShoppingCartContextProvider({
     dispatch({ type: actions.ADD_NEW_ITEM, payload })
   }
 
-  function removeItem(payload: any) {
-    dispatch({ type: actions.REMOVE_ITEM, payload })
-  }
-
   function updateItem(payload: any) {
     dispatch({ type: actions.UPDATE_ITEM, payload })
+  }
+
+  function removeItem(payload: any) {
+    dispatch({ type: actions.REMOVE_ITEM, payload })
   }
 
   return (
