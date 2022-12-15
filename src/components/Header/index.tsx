@@ -8,10 +8,29 @@ import { ShoppingCart, MapPin } from 'phosphor-react'
 
 import logo from '../../assets/logo.png'
 
+import { useNavigate } from 'react-router-dom'
+import { useContext } from 'react'
+
+import { ShoppingCartContext } from '../../context/shopCartContext'
+
 export function Header() {
+  const { shopCart }: any = useContext(ShoppingCartContext)
+
+  const { shopCartList } = shopCart
+
+  const navigate = useNavigate()
+
+  function handleNavigateCheckout() {
+    navigate('/checkout')
+  }
+
+  function handleNavigateHome() {
+    navigate('/')
+  }
+
   return (
     <NavContainer>
-      <button>
+      <button onClick={handleNavigateHome}>
         <img src={logo} alt="" />
       </button>
       <ul>
@@ -22,9 +41,9 @@ export function Header() {
           </ButtonLocationContainer>
         </li>
         <li>
-          <ButtonShopCartContainer>
+          <ButtonShopCartContainer onClick={handleNavigateCheckout}>
             <ShoppingCart size={22} weight="fill" />
-            <div>2</div>
+            <div>{shopCartList.length}</div>
           </ButtonShopCartContainer>
         </li>
       </ul>
