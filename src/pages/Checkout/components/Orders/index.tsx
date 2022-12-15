@@ -10,20 +10,42 @@ import {
   QuantityContainer,
 } from './styles'
 
-import img from '../../../../assets/images/Type=Americano.png'
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import { ShoppingCartContext } from '../../../../context/shopCartContext'
 
 export function Orders() {
+  const { removeItem, shopCart }: any = useContext(ShoppingCartContext)
+  const { shopCartList } = shopCart
+
   const [quantity, setQuantity] = useState(1)
 
-  const data = useContext(ShoppingCartContext)
+  function handleRemoveItemFromShopList(id: string) {
+    removeItem(id)
+  }
 
-  const { removeItem }: any = data
+  function calcTotalValue(value: number) {
+    const initialValue = 0
+    const allPrices = shopCartList.reduce(function (
+      acc: number,
+      currentValue: number,
+    ) {
+      return acc + currentValue.totalPrice
+    },
+    initialValue)
 
-  function handleRemoveItemFromShopList() {
-    removeItem('id')
+    const newPrice = allPrices + value
+
+    return newPrice
+  }
+
+  function numberToString(totalPrice: number) {
+    const strPrice = String(totalPrice.toFixed(2))
+    const newStrPrice = strPrice.replace('.', ',').split(',')
+
+    const response = `${newStrPrice[0]},${newStrPrice[1].padEnd(2, '0')}`
+
+    return response
   }
 
   return (
@@ -31,32 +53,41 @@ export function Orders() {
       <h2>Cafés selecionados</h2>
 
       <OrdersBoxContainer>
-        <OrdersContent>
-          <img src={img} alt="" />
-          <div>
-            <p>Expresso Tradicional</p>
-            <DetailsContent>
-              <QuantityContainer>
-                <button onClick={() => setQuantity(quantity - 1)}>
-                  <Minus size={14} weight="fill" />
-                </button>
-                <p>{quantity}</p>
-                <button onClick={() => setQuantity(quantity + 1)}>
-                  <Plus size={14} weight="fill" />
-                </button>
-              </QuantityContainer>
-              <ButtonRemoveContainer onClick={handleRemoveItemFromShopList}>
-                <Trash size={16} />
-                <span>remover</span>
-              </ButtonRemoveContainer>
-            </DetailsContent>
-          </div>
-          <p>R$ 9,90</p>
-        </OrdersContent>
+        {shopCartList.map((item: any) => (
+          <OrdersContent key={item.id}>
+            <img src={item.img} alt="" />
+            <div>
+              <p>{item.name}</p>
+              <DetailsContent>
+                <QuantityContainer>
+                  <button onClick={() => setQuantity(quantity - 1)}>
+                    <Minus size={14} weight="fill" />
+                  </button>
+                  <p>{quantity}</p>
+                  <button onClick={() => setQuantity(quantity + 1)}>
+                    <Plus size={14} weight="fill" />
+                  </button>
+                </QuantityContainer>
+                <ButtonRemoveContainer
+                  onClick={() => handleRemoveItemFromShopList(item.id)}
+                >
+                  <Trash size={16} />
+                  <span>remover</span>
+                </ButtonRemoveContainer>
+              </DetailsContent>
+            </div>
+            <p>
+              R$
+              {numberToString(item.totalPrice)}
+            </p>
+          </OrdersContent>
+        ))}
 
         <ValuesContainer>
           <p>Total de itens</p>
-          <p>R$ 29,70</p>
+          <p>
+            R$ {shopCartList.length > 0 ? numberToString(calcTotalValue(0)) : 0}
+          </p>
         </ValuesContainer>
         <ValuesContainer>
           <p>Entrega</p>
@@ -64,7 +95,10 @@ export function Orders() {
         </ValuesContainer>
         <LastValuesContainer>
           <p>Total</p>
-          <p>R$ 33,20</p>
+          <p>
+            R${' '}
+            {shopCartList.length > 0 ? numberToString(calcTotalValue(3.5)) : 0}
+          </p>
         </LastValuesContainer>
 
         <ButtonConfirm>confirmar pedido</ButtonConfirm>

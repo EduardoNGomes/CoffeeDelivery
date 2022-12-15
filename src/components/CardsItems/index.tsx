@@ -42,12 +42,15 @@ export function CardsItems({
   }
 
   function handleAddToShopList() {
+    const totalPrice = Number(price.replace(',', '.')) * quantity
+
     const itemSelected = {
       id,
       img,
       name,
       quantity,
       price,
+      totalPrice,
     }
     const itemToUpdate = shopCartList.filter(
       (item: ShopCartListProps) => item.id === itemSelected.id,
