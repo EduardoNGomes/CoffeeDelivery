@@ -59,6 +59,8 @@ export const PaymentButton = styled.button`
 
   background: ${({ theme }) => theme['base-button']};
 
+  border: 1px solid transparent;
+
   border-radius: 6px;
 
   svg {
