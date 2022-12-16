@@ -29,7 +29,11 @@ export function shopCartReducer(state: ShopCarLists, action: any) {
       const itemToUpdate = state.shopCartList.filter(
         (item) => item.id === action.payload.id,
       )
-      const newItem = { ...itemToUpdate[0], quantity: action.payload.quantity }
+      const newItem = {
+        ...itemToUpdate[0],
+        quantity: action.payload.quantity,
+        totalPrice: action.payload.totalPrice,
+      }
       const newShopCartList = state.shopCartList.filter(
         (item) => item.id !== action.payload.id,
       )
