@@ -38,6 +38,12 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  @media (max-width: 1024px) {
+    *{
+      font-size:60%;
+    }
+  }
+
   @media (max-width: 768px) {
     *{
       font-size:50%;

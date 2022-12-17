@@ -29,6 +29,30 @@ export const PageContent = styled.div`
   gap: 14.8rem;
 
   margin: 40px;
+
+  @media (max-width: 1024px) {
+    margin: 40px 0;
+
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 400px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin: 40px 0;
+
+    gap: 3rem;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 400px;
+    }
+  }
 `
 
 export const DetailsContent = styled.div`
