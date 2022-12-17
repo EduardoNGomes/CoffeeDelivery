@@ -18,4 +18,14 @@ export const ContentLayoutAside = styled.div`
   display: grid;
   gap: 32px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 400px) {
+    grid-template-columns: 1fr;
+  }
 `

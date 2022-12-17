@@ -1,13 +1,15 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
- * {
+
+  
+* {
+  font-size: 66.5%;
   margin: 0;
   padding: 0;
 
   box-sizing: border-box;
 
-  font-size: 66.5%;
  }
 
   body {
@@ -34,5 +36,11 @@ export const GlobalStyle = createGlobalStyle`
 
   li{
     list-style: none;
+  }
+
+  @media (max-width: 768px) {
+    *{
+      font-size:50%;
+    }
   }
 `

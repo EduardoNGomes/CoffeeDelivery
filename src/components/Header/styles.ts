@@ -14,6 +14,11 @@ export const NavContainer = styled.nav`
     justify-content: center;
     align-items: center;
   }
+
+  @media (max-width: 768px) {
+    margin: 0;
+    padding: 20px;
+  }
 `
 
 const ButtonDefault = styled.button`
@@ -40,6 +45,10 @@ export const ButtonLocationContainer = styled.div`
   padding: 8px;
 
   border-radius: 8px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `
 export const ButtonShopCartContainer = styled(ButtonDefault)`
   position: relative;

@@ -9,6 +9,14 @@ export const MainContainer = styled.main`
     width: 476px;
     height: 360px;
   }
+  @media (max-width: 1024px) {
+    flex-direction: column-reverse;
+    justify-content: center;
+    img {
+      width: 276px;
+      height: 180px;
+    }
+  }
 `
 
 export const TextsContainer = styled.div`
@@ -45,36 +53,27 @@ export const TextsContainer = styled.div`
     font-size: 1.6rem;
   }
 
-  ul li:nth-child(1) span {
-    display: flex;
-    align-items: center;
-    background: ${({ theme }) => theme['yellow-dark']};
+  ul li span {
     padding: 8px;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
     color: ${({ theme }) => theme.white};
+  }
+  ul li:nth-child(1) span {
+    background: ${({ theme }) => theme['yellow-dark']};
   }
   ul li:nth-child(2) span {
-    display: flex;
-    align-items: center;
     background: ${({ theme }) => theme['base-text']};
-    padding: 8px;
-    border-radius: 50%;
-    color: ${({ theme }) => theme.white};
   }
   ul li:nth-child(3) span {
-    display: flex;
-    align-items: center;
     background: ${({ theme }) => theme.yellow};
-    padding: 8px;
-    border-radius: 50%;
-    color: ${({ theme }) => theme.white};
   }
   ul li:nth-child(4) span {
-    display: flex;
-    align-items: center;
     background: ${({ theme }) => theme.purple};
-    padding: 8px;
-    border-radius: 50%;
-    color: ${({ theme }) => theme.white};
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
   }
 `
