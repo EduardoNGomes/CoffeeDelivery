@@ -2,6 +2,11 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   margin: 9.4rem 16rem;
+
+  @media (max-width: 400px) {
+    padding: 20px;
+    margin: 9.4rem 0;
+  }
 `
 export const TextBox = styled.div`
   h1 {
@@ -30,7 +35,7 @@ export const PageContent = styled.div`
 
   margin: 40px;
 
-  @media (max-width: 1024px) {
+  @media (max-width: 1280px) {
     margin: 40px 0;
 
     gap: 3rem;
@@ -45,13 +50,7 @@ export const PageContent = styled.div`
   @media (max-width: 768px) {
     margin: 40px 0;
 
-    gap: 3rem;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      width: 400px;
-    }
+    flex-direction: column;
   }
 `
 
