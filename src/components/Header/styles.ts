@@ -27,11 +27,19 @@ const ButtonDefault = styled.button`
   border-radius: 8px;
 `
 
-export const ButtonLocationContainer = styled(ButtonDefault)`
+export const ButtonLocationContainer = styled.div`
   background-color: ${({ theme }) => theme['purple-light']};
 
   font-size: 1.4rem;
   color: ${({ theme }) => theme['purple-dark']};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+
+  padding: 8px;
+
+  border-radius: 8px;
 `
 export const ButtonShopCartContainer = styled(ButtonDefault)`
   position: relative;

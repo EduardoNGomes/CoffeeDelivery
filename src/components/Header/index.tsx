@@ -12,12 +12,13 @@ import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 
 import { ShoppingCartContext } from '../../context/shopCartContext'
+import { AddressContext } from '../../context/addressContext'
 
 export function Header() {
   const { shopCart }: any = useContext(ShoppingCartContext)
 
   const { shopCartList } = shopCart
-
+  const { city, uf } = useContext(AddressContext)
   const navigate = useNavigate()
 
   function handleNavigateCheckout() {
@@ -37,7 +38,7 @@ export function Header() {
         <li>
           <ButtonLocationContainer>
             <MapPin size={22} weight="fill" />
-            Porto Alegre, RS
+            {city ? `${city}, ${uf} ` : 'Brasil'}
           </ButtonLocationContainer>
         </li>
         <li>

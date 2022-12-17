@@ -9,7 +9,7 @@ import { AddressContext } from '../../context/addressContext'
 export function Success() {
   const { city, district, houseNumber, street, uf } = useContext(AddressContext)
 
-  const { credit, debit, money } = useContext(PaymentContext)
+  const { credit, debit } = useContext(PaymentContext)
 
   return (
     <Container>
