@@ -35,8 +35,8 @@ export function Address() {
 
         <FormContainer>
           <input
-            type="text"
-            placeholder="CEP(apenas numeros)"
+            type="number"
+            placeholder="CEP"
             onChange={(e) => changeState('cep', e)}
             value={cep}
             required

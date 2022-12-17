@@ -11,14 +11,17 @@ import {
 } from './styles'
 
 import { Minus, Plus, Trash } from 'phosphor-react'
-import { useContext, useState } from 'react'
-import { ShoppingCartContext } from '../../../../context/shopCartContext'
+import { useContext } from 'react'
+import {
+  CardItemsToOrderProps,
+  ShoppingCartContext,
+} from '../../../../context/shopCartContext'
 import { AddressContext } from '../../../../context/addressContext'
 import { useNavigate } from 'react-router-dom'
 import { PaymentContext } from '../../../../context/paymentContext'
 
 export function Orders() {
-  const { removeItem, shopCart }: any = useContext(ShoppingCartContext)
+  const { updateItem, removeItem, shopCart } = useContext(ShoppingCartContext)
   const { shopCartList } = shopCart
 
   const { cep, city, district, houseNumber, street, uf } =
@@ -28,8 +31,6 @@ export function Orders() {
 
   const navigate = useNavigate()
 
-  const [quantity, setQuantity] = useState(1)
-
   function handleRemoveItemFromShopList(id: string) {
     removeItem(id)
   }
@@ -38,7 +39,7 @@ export function Orders() {
     const initialValue = 0
     const allPrices = shopCartList.reduce(function (
       acc: number,
-      currentValue: number,
+      currentValue: CardItemsToOrderProps,
     ) {
       return acc + currentValue.totalPrice
     },
@@ -58,6 +59,38 @@ export function Orders() {
     return response
   }
 
+  function handleQuantityMinus(item: CardItemsToOrderProps) {
+    if (item.quantity === 1) {
+      return alert('Quantidade mínima atingida')
+    }
+    const totalPrice =
+      Number(item.price.replace(',', '.')) * (item.quantity - 1)
+
+    const itemSelected = {
+      id: item.id,
+      img: item.img,
+      name: item.name,
+      quantity: item.quantity - 1,
+      price: item.price,
+      totalPrice,
+    }
+    updateItem(itemSelected)
+  }
+  function handleQuantityPlus(item: CardItemsToOrderProps) {
+    const totalPrice =
+      Number(item.price.replace(',', '.')) * (item.quantity + 1)
+
+    const itemSelected = {
+      id: item.id,
+      img: item.img,
+      name: item.name,
+      quantity: item.quantity + 1,
+      price: item.price,
+      totalPrice,
+    }
+    updateItem(itemSelected)
+  }
+
   function handleConfirm() {
     if (!credit && !debit && !money) {
       return alert('Escolha um opção de pagamento')
@@ -73,18 +106,18 @@ export function Orders() {
       <h2>Cafés selecionados</h2>
 
       <OrdersBoxContainer>
-        {shopCartList.map((item: any) => (
+        {shopCartList.map((item: CardItemsToOrderProps) => (
           <OrdersContent key={item.id}>
             <img src={item.img} alt="" />
             <div>
               <p>{item.name}</p>
               <DetailsContent>
                 <QuantityContainer>
-                  <button onClick={() => setQuantity(quantity - 1)}>
+                  <button onClick={() => handleQuantityMinus(item)}>
                     <Minus size={14} weight="fill" />
                   </button>
-                  <p>{quantity}</p>
-                  <button onClick={() => setQuantity(quantity + 1)}>
+                  <p>{item.quantity}</p>
+                  <button onClick={() => handleQuantityPlus(item)}>
                     <Plus size={14} weight="fill" />
                   </button>
                 </QuantityContainer>

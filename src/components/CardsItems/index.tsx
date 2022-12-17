@@ -11,7 +11,6 @@ import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { CardsItemsProps } from './interfaces'
 import { useContext, useState } from 'react'
 import { ShoppingCartContext } from '../../context/shopCartContext'
-import { ShopCartListProps } from '../../reducers/ShopCart/reducer'
 
 export function CardsItems({
   id,
@@ -23,9 +22,7 @@ export function CardsItems({
 }: CardsItemsProps) {
   const [quantity, setQuantity] = useState(1)
 
-  const data = useContext(ShoppingCartContext)
-
-  const { addNewItem, updateItem, shopCart }: any = data
+  const { addNewItem, updateItem, shopCart } = useContext(ShoppingCartContext)
 
   const { shopCartList } = shopCart
 
@@ -53,7 +50,7 @@ export function CardsItems({
       totalPrice,
     }
     const itemToUpdate = shopCartList.filter(
-      (item: ShopCartListProps) => item.id === itemSelected.id,
+      (item) => item.id === itemSelected.id,
     )
 
     if (itemToUpdate.length > 0) {

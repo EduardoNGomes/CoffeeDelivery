@@ -18,6 +18,7 @@ export const defaultTheme = {
   'base-label': '#8d8686',
 
   background: '#fafafa',
+  'background-dark': '#000000',
 
   'font-1': '"Roboto", sans-serif',
   'font-2': '"Baloo 2", cursive',

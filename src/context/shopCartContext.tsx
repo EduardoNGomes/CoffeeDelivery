@@ -6,29 +6,45 @@ import { actions } from '../reducers/ShopCart/action'
 interface ShoppingCartContextProviderProps {
   children: ReactNode
 }
+export interface CardItemsToOrderProps {
+  id: string
+  img: string
+  name: string
+  price: string
+  totalPrice: number
+  quantity: number
+}
 
-// interface ShopCartProviderProps {
-//   addNewItem: () => void
-//   updateItem: () => void
-//   removeItem: () => void
-//   shopCart: Object[]
-// }
-export const ShoppingCartContext = createContext({})
+interface ShopCartListProps {
+  shopCartList: CardItemsToOrderProps[]
+}
+
+interface ShopCartProviderProps {
+  addNewItem: (payload: CardItemsToOrderProps) => void
+  updateItem: (payload: CardItemsToOrderProps) => void
+  removeItem: (payload: string) => void
+  shopCart: ShopCartListProps
+}
+export const ShoppingCartContext = createContext({} as ShopCartProviderProps)
+
+const initialState = {
+  shopCartList: [] as CardItemsToOrderProps[],
+}
 
 export function ShoppingCartContextProvider({
   children,
 }: ShoppingCartContextProviderProps) {
-  const [shopCart, dispatch] = useReducer(shopCartReducer, { shopCartList: [] })
+  const [shopCart, dispatch] = useReducer(shopCartReducer, initialState)
 
-  function addNewItem(payload: any) {
+  function addNewItem(payload: CardItemsToOrderProps) {
     dispatch({ type: actions.ADD_NEW_ITEM, payload })
   }
 
-  function updateItem(payload: any) {
+  function updateItem(payload: CardItemsToOrderProps) {
     dispatch({ type: actions.UPDATE_ITEM, payload })
   }
 
-  function removeItem(payload: any) {
+  function removeItem(payload: string) {
     dispatch({ type: actions.REMOVE_ITEM, payload })
   }
 

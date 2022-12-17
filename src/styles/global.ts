@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
  }
 
   body {
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme};
     max-width: 144rem;
     margin: 0 auto;
   
@@ -36,6 +36,18 @@ export const GlobalStyle = createGlobalStyle`
 
   li{
     list-style: none;
+  }
+
+  .dark-theme-background {
+    background-color:${({ theme }) => theme['background-dark']};
+    
+  }
+  .dark-theme-box {
+    background-color:${({ theme }) => theme['purple-light']};
+  }
+
+  .dark-theme-text {
+    color: ${({ theme }) => theme.white}
   }
 
   @media (max-width: 1024px) {
