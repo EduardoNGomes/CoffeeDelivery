@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ShoppingCartContextProvider } from './context/shopCartContext'
 import { AddressContextProvider } from './context/addressContext'
 import { PaymentContextProvider } from './context/paymentContext'
+import { DarkThemeContextProvider } from './context/darkThemeContext'
 
 import { Router } from './Router'
 
@@ -16,8 +17,10 @@ export function App() {
         <ShoppingCartContextProvider>
           <AddressContextProvider>
             <PaymentContextProvider>
-              <GlobalStyle />
-              <Router />
+              <DarkThemeContextProvider>
+                <GlobalStyle />
+                <Router />
+              </DarkThemeContextProvider>
             </PaymentContextProvider>
           </AddressContextProvider>
         </ShoppingCartContextProvider>
