@@ -3,11 +3,17 @@ import { createContext, ReactNode, useReducer } from 'react'
 import { shopCartReducer } from '../reducers/ShopCart/reducer'
 import { actions } from '../reducers/ShopCart/action'
 
-export const ShoppingCartContext = createContext({})
-
 interface ShoppingCartContextProviderProps {
   children: ReactNode
 }
+
+// interface ShopCartProviderProps {
+//   addNewItem: () => void
+//   updateItem: () => void
+//   removeItem: () => void
+//   shopCart: Object[]
+// }
+export const ShoppingCartContext = createContext({})
 
 export function ShoppingCartContextProvider({
   children,

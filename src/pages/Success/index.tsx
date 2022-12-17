@@ -2,8 +2,15 @@ import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { Container, DetailsContent, PageContent, TextBox } from './styles'
 
 import img from '../../assets/delivery.png'
+import { useContext } from 'react'
+import { PaymentContext } from '../../context/paymentContext'
+import { AddressContext } from '../../context/addressContext'
 
 export function Success() {
+  const { city, district, houseNumber, street, uf } = useContext(AddressContext)
+
+  const { credit, debit, money } = useContext(PaymentContext)
+
   return (
     <Container>
       <TextBox>
@@ -20,9 +27,14 @@ export function Success() {
 
               <div>
                 <p>
-                  Entrega em <span>Rua João Daniel Martinelli, 102 </span>{' '}
+                  Entrega em{' '}
+                  <span>
+                    {street}, {houseNumber}{' '}
+                  </span>{' '}
                 </p>
-                <p>Farrapos - Porto Alegre, RS</p>
+                <p>
+                  {district} - {city}, {uf}
+                </p>
               </div>
             </li>
 
@@ -47,7 +59,13 @@ export function Success() {
               <div>
                 <p>Pagamento na entrega</p>
                 <p>
-                  <span>Cartão de Crédito</span>
+                  <span>
+                    {credit
+                      ? 'Cartão de Crédito'
+                      : debit
+                      ? 'Cartão de Débito'
+                      : 'Dinheiro'}
+                  </span>
                 </p>
               </div>
             </li>

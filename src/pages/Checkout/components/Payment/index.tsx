@@ -1,5 +1,6 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { PaymentContext } from '../../../../context/paymentContext'
 
 import {
   PaymentContainer,
@@ -9,32 +10,8 @@ import {
 } from './styles'
 
 export function Payment() {
-  const [credit, setCredit] = useState(false)
-  const [debit, setDebit] = useState(false)
-  const [money, setMoney] = useState(false)
-
-  function handlePaymentMethod(option: string) {
-    switch (option) {
-      case 'credit': {
-        setCredit(true)
-        setDebit(false)
-        setMoney(false)
-        break
-      }
-      case 'debit': {
-        setDebit(true)
-        setCredit(false)
-        setMoney(false)
-        break
-      }
-      case 'money': {
-        setMoney(true)
-        setCredit(false)
-        setDebit(false)
-        break
-      }
-    }
-  }
+  const { credit, debit, money, handlePaymentMethod } =
+    useContext(PaymentContext)
 
   return (
     <PaymentContainer>

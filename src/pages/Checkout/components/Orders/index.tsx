@@ -13,10 +13,20 @@ import {
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import { ShoppingCartContext } from '../../../../context/shopCartContext'
+import { AddressContext } from '../../../../context/addressContext'
+import { useNavigate } from 'react-router-dom'
+import { PaymentContext } from '../../../../context/paymentContext'
 
 export function Orders() {
   const { removeItem, shopCart }: any = useContext(ShoppingCartContext)
   const { shopCartList } = shopCart
+
+  const { cep, city, district, houseNumber, street, uf } =
+    useContext(AddressContext)
+
+  const { credit, debit, money } = useContext(PaymentContext)
+
+  const navigate = useNavigate()
 
   const [quantity, setQuantity] = useState(1)
 
@@ -46,6 +56,16 @@ export function Orders() {
     const response = `${newStrPrice[0]},${newStrPrice[1].padEnd(2, '0')}`
 
     return response
+  }
+
+  function handleConfirm() {
+    if (!credit && !debit && !money) {
+      return alert('Escolha um opção de pagamento')
+    }
+    if (!cep || !city || !district || !houseNumber || !street || !uf) {
+      return alert('Verifique os dados preenchidos')
+    }
+    navigate('/success')
   }
 
   return (
@@ -101,7 +121,7 @@ export function Orders() {
           </p>
         </LastValuesContainer>
 
-        <ButtonConfirm>confirmar pedido</ButtonConfirm>
+        <ButtonConfirm onClick={handleConfirm}>confirmar pedido</ButtonConfirm>
       </OrdersBoxContainer>
     </BoxContainer>
   )
