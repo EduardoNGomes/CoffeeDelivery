@@ -24,10 +24,9 @@ export const TypeContainer = styled.div`
   gap: 4px;
 
   p {
-    background: ${({ theme }) => theme['yellow-light']};
-    border-radius: 100px;
-
     color: ${({ theme }) => theme['yellow-dark']};
+    border-radius: 100px;
+    background: ${({ theme }) => theme['yellow-light']};
 
     font-size: 1rem;
     font-weight: 700;

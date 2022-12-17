@@ -1,4 +1,4 @@
-export const defaultTheme = {
+export const lightTheme = {
   white: '#fff',
   yellow: '#dbac2c',
   'yellow-light': '#f1e9c9',
@@ -18,7 +18,31 @@ export const defaultTheme = {
   'base-label': '#8d8686',
 
   background: '#fafafa',
-  'background-dark': '#000000',
+
+  'font-1': '"Roboto", sans-serif',
+  'font-2': '"Baloo 2", cursive',
+}
+
+export const darkTheme = {
+  white: 'black',
+  yellow: '#dbac2c',
+  'yellow-dark': '#f1e9c9',
+  'yellow-light': '#c47f17',
+
+  purple: '#8047f8',
+  'purple-dark': '#ebe5f9',
+  'purple-light': '#4b2995',
+
+  'base-title': '#fff',
+  'base-subtitle': '#fff',
+  'base-text': '#fff',
+  'base-hover': '#fff',
+  'base-button': '#fff',
+  'base-input': '#fff',
+  'base-card': '#fff',
+  'base-label': '#fff',
+
+  background: 'black',
 
   'font-1': '"Roboto", sans-serif',
   'font-2': '"Baloo 2", cursive',

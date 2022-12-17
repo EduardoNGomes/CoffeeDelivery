@@ -1,5 +1,5 @@
 import { GlobalStyle } from './styles/global'
-import { defaultTheme } from './styles/themes/default'
+import { lightTheme, darkTheme } from './styles/themes/default'
 import { ThemeProvider } from 'styled-components'
 import { BrowserRouter } from 'react-router-dom'
 
@@ -12,7 +12,7 @@ import { Router } from './Router'
 
 export function App() {
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
         <ShoppingCartContextProvider>
           <AddressContextProvider>

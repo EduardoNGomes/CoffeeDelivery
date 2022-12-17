@@ -51,6 +51,7 @@ export const TextsContainer = styled.div`
     gap: 12px;
 
     font-size: 1.6rem;
+    color: ${({ theme }) => theme['base-subtitle']};
   }
 
   ul li span {
