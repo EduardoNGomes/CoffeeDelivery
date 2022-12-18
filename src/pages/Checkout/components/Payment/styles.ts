@@ -76,7 +76,7 @@ export const PaymentButton = styled.button`
 
     text-transform: uppercase;
 
-    color: ${({ theme }) => theme.black};
+    color: ${({ theme }) => theme.background};
 
     :hover {
       color: ${({ theme }) => theme['base-subtitle']};
