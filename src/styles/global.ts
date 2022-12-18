@@ -16,6 +16,8 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.background};
     max-width: 144rem;
     margin: 0 auto;
+
+    transition: .3s all ease-in-out;
   
   }
 
@@ -32,25 +34,25 @@ export const GlobalStyle = createGlobalStyle`
     cursor: pointer;
 
     transition: all .3s;
+    
+
   }
 
   li{
     list-style: none;
   }
 
-  .dark-theme-background {
-    background-color:${({ theme }) => theme['background-dark']};
-    
-  }
-  .dark-theme-box {
-    background-color:${({ theme }) => theme['purple-dark']};
+
+  #theme-button {
+    position: absolute;
+    top: 25px;
+
+    left: 48%;
+    right: 50%;
   }
 
-  .dark-theme-text {
-    h1,h2,h2,h4,p,span,li,ul{
-      color: ${({ theme }) => theme.white}
-    }
-  }
+
+
 
   @media (max-width: 1024px) {
     *{

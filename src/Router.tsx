@@ -4,6 +4,7 @@ import { DefaultLayout } from './Layouts'
 import { Home } from './pages/Home'
 import { Checkout } from './pages/Checkout'
 import { Success } from './pages/Success'
+
 export function Router() {
   return (
     <Routes>

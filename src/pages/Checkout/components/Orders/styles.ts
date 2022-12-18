@@ -79,11 +79,11 @@ export const ButtonRemoveContainer = styled.button`
 
     text-transform: uppercase;
 
-    color: ${({ theme }) => theme['base-text']};
+    color: ${({ theme }) => theme.background};
   }
 
   :hover {
-    color: ${({ theme }) => theme['base-subtitle']};
+    color: ${({ theme }) => theme.purple};
     background: ${({ theme }) => theme['base-hover']};
   }
 `
@@ -101,7 +101,7 @@ export const QuantityContainer = styled.div`
 
   p {
     font-size: 1.6rem;
-    color: ${({ theme }) => theme['base-title']};
+    color: ${({ theme }) => theme.background};
   }
   button {
     color: ${({ theme }) => theme.purple};

@@ -98,7 +98,7 @@ export const QuantityContainer = styled.div`
 
   p {
     font-size: 1.6rem;
-    color: ${({ theme }) => theme['base-title']};
+    color: ${({ theme }) => theme.background};
   }
   button {
     color: ${({ theme }) => theme.purple};

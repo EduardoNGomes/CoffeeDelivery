@@ -13,11 +13,8 @@ import { useContext } from 'react'
 
 import { ShoppingCartContext } from '../../context/shopCartContext'
 import { AddressContext } from '../../context/addressContext'
-import { darkThemeContext } from '../../context/darkThemeContext'
 
 export function Header() {
-  const { changeTheme } = useContext(darkThemeContext)
-
   const { shopCart } = useContext(ShoppingCartContext)
 
   const { shopCartList } = shopCart
@@ -31,12 +28,12 @@ export function Header() {
   function handleNavigateHome() {
     navigate('/')
   }
-
   return (
     <NavContainer>
       <button onClick={handleNavigateHome}>
         <img src={logo} alt="" />
       </button>
+
       <ul>
         <li>
           <ButtonLocationContainer>

@@ -1,4 +1,4 @@
-export const lightTheme = {
+export const LightTheme = {
   white: '#fff',
   yellow: '#dbac2c',
   'yellow-light': '#f1e9c9',
@@ -23,7 +23,7 @@ export const lightTheme = {
   'font-2': '"Baloo 2", cursive',
 }
 
-export const darkTheme = {
+export const DarkTheme = {
   white: 'black',
   yellow: '#dbac2c',
   'yellow-dark': '#f1e9c9',
@@ -39,7 +39,7 @@ export const darkTheme = {
   'base-hover': '#fff',
   'base-button': '#fff',
   'base-input': '#fff',
-  'base-card': '#fff',
+  'base-card': '#8047f8',
   'base-label': '#fff',
 
   background: 'black',
