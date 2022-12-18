@@ -21,7 +21,8 @@ import { useNavigate } from 'react-router-dom'
 import { PaymentContext } from '../../../../context/paymentContext'
 
 export function Orders() {
-  const { updateItem, removeItem, shopCart } = useContext(ShoppingCartContext)
+  const { updateItem, removeItem, cleanShopCartList, shopCart } =
+    useContext(ShoppingCartContext)
   const { shopCartList } = shopCart
 
   const { cep, city, district, houseNumber, street, uf } =
@@ -99,6 +100,7 @@ export function Orders() {
       return alert('Verifique os dados preenchidos')
     }
     navigate('/success')
+    cleanShopCartList()
   }
 
   return (

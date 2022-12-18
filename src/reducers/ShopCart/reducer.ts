@@ -39,6 +39,9 @@ export function shopCartReducer(state: ShopCarLists, action: any) {
       )
       return { ...state, shopCartList: [...newShopCartList, newItem] }
     }
+    case actions.CLEAR: {
+      return { shopCartList: [] }
+    }
   }
 
   return { ...state }

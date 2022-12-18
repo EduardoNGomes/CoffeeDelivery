@@ -23,6 +23,7 @@ interface ShopCartProviderProps {
   addNewItem: (payload: CardItemsToOrderProps) => void
   updateItem: (payload: CardItemsToOrderProps) => void
   removeItem: (payload: string) => void
+  cleanShopCartList: () => void
   shopCart: ShopCartListProps
 }
 export const ShoppingCartContext = createContext({} as ShopCartProviderProps)
@@ -48,9 +49,18 @@ export function ShoppingCartContextProvider({
     dispatch({ type: actions.REMOVE_ITEM, payload })
   }
 
+  function cleanShopCartList() {
+    dispatch({ type: actions.CLEAR })
+  }
   return (
     <ShoppingCartContext.Provider
-      value={{ addNewItem, removeItem, updateItem, shopCart }}
+      value={{
+        addNewItem,
+        removeItem,
+        updateItem,
+        cleanShopCartList,
+        shopCart,
+      }}
     >
       {children}
     </ShoppingCartContext.Provider>
