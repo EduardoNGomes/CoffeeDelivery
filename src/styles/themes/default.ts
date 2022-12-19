@@ -17,7 +17,9 @@ export const LightTheme = {
   'base-card': '#f3f2f2',
   'base-label': '#8d8686',
 
-  background: '#fafafa',
+  background: 'black',
+
+  'background-theme': '#fafafa',
 
   'font-1': '"Roboto", sans-serif',
   'font-2': '"Baloo 2", cursive',
@@ -43,6 +45,7 @@ export const DarkTheme = {
   'base-label': '#fff',
 
   background: 'black',
+  'background-theme': 'black',
 
   'font-1': '"Roboto", sans-serif',
   'font-2': '"Baloo 2", cursive',

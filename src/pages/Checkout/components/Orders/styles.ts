@@ -11,6 +11,9 @@ export const BoxContainer = styled.section`
 
     color: ${({ theme }) => theme['base-subtitle']};
   }
+  @media (max-width: 500px) {
+    max-width: 360px;
+  }
 `
 
 export const OrdersBoxContainer = styled.div`
@@ -49,6 +52,18 @@ export const OrdersContent = styled.div`
     line-height: 130%;
 
     color: ${({ theme }) => theme['base-text']};
+  }
+  @media (max-width: 500px) {
+    gap: 15px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    p:last-child {
+      display: none;
+    }
   }
 `
 

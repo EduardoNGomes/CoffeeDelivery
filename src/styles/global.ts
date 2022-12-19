@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
  }
 
   body {
-    background: ${({ theme }) => theme.background};
+    background: ${({ theme }) => theme['background-theme']};
     max-width: 144rem;
     margin: 0 auto;
 

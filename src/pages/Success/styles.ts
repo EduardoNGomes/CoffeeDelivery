@@ -52,6 +52,12 @@ export const PageContent = styled.div`
 
     flex-direction: column;
   }
+
+  @media (max-width: 500px) {
+    img {
+      width: 300px;
+    }
+  }
 `
 
 export const DetailsContent = styled.div`

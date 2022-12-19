@@ -11,6 +11,10 @@ export const PaymentContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 500px) {
+    max-width: 360px;
+  }
 `
 
 export const PaymentText = styled.div`

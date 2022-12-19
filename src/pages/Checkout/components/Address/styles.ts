@@ -12,6 +12,10 @@ export const BoxContainer = styled.section`
 
     color: ${({ theme }) => theme['base-subtitle']};
   }
+
+  @media (max-width: 500px) {
+    max-width: 360px;
+  }
 `
 
 export const AddressContainer = styled.div`
