@@ -1,5 +1,4 @@
 # CoffeeDelivery
-This project was developed for Rockeseat's Ignite course
 
 # Deploy Project
 - [Coffee Develivery](https://coffeedelivery-eduardo.netlify.app/)
@@ -9,7 +8,7 @@ This project was developed for Rockeseat's Ignite course
 
 ## Project description
 
-<p align="center">This project was created as the final challenge of the Rockeseat Explorer course .</p>
+<p align="center">This project was developed for Rockeseat's Ignite course</p>
 
 ### Features
 - [x] Add items
