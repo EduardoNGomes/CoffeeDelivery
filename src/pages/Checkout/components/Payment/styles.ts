@@ -82,9 +82,7 @@ export const PaymentButton = styled.button`
 
     color: ${({ theme }) => theme.background};
 
-    :hover {
-      color: ${({ theme }) => theme['base-subtitle']};
-    }
+
   }
 
   :hover {
