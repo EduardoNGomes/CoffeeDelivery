@@ -45,10 +45,9 @@ export const GlobalStyle = createGlobalStyle`
 
   #theme-button {
     position: absolute;
-    top: 25px;
-
-    left: 48%;
-    right: 50%;
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
 
